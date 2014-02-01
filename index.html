@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Just A Minute</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css" /> -->
+    
+    <!-- local stylesheets -->
+    <link rel="stylesheet" href="app.css" />
+    <!-- Angularjs -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+  </head>
+  <body ng-app="justaminute">
+    <!-- navbar-default navbar-inverse | navbar-static-top navbar-fixed-top navbar-fixed-bottom -->
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+	<div class="navbar-header">
+	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsible-navigation">
+	    <span class="sr-only">Toggle navigation</span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	  </button>
+	  <a class="navbar-brand" href="index.html">Just A Minute</a>
+	</div>
+    
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div id="collapsible-navigation" class="collapse navbar-collapse">
+	  <ul class="nav navbar-nav navbar-right">
+	  </ul>
+	</div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class= "container" ng-controller="CountdownController">
+      <h1 class="text-center clock">{{data.seconds}}</h1>
+      <div class="row">
+	<div class="col-xs-6 col-sm-2 col-sm-offset-3" ><button type="button" class="btn btn-primary btn-lg btn-block" ng-click="reset()">Reset</button></div> 
+       	<div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-lg btn-default btn-block" ng-class="{'btn-success': data.continuing}" ng-click="toggleContinuous()">Continuous</button></div>
+	<div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-danger btn-lg btn-block" ng-click="stop()">Stop</button></div>  
+
+      </div> 
+    </div>
+    
+    <!-- local scripts -->
+    <script src="howler.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
